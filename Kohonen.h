@@ -88,7 +88,7 @@ void Kohonen::Entrenar(double ** X_entr, int s_X, int max_epocas){
             //ADAPTAR PESOS
             for (int f = 0; f < filas; f++){
                 for (int c = 0; c < columnas; c++){
-                    dist_BMU = Distancia(neuronas[f][c].Posicion(), BMU);
+                    dist_BMU = Distancia(neuronas[f][c].Ubicacion(), BMU);
                     if(dist_BMU <= radio){
                         h_gn = Vecindad(dist_BMU,radio);
                         for (int e = 0; e < s_entradas; e++){
@@ -106,7 +106,7 @@ void Kohonen::Imprimir(){
         for (int c = 0; c < columnas; c++){
             std::cout<<"---------------------------------------------\n";
             std::cout<<"Neurona |"<<f<<"|"<<c<<"|\n";
-            tmp = neuronas[f][c].Posicion();
+            tmp = neuronas[f][c].Ubicacion();
             std::cout<<"["<<tmp[0]<<", "<<tmp[1]<<"]\n";
             std::cout<<"["<<pesos[f][c][0];
             for (int e = 1; e < s_entradas; e++){
